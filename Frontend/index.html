@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do</title>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -19,10 +19,8 @@
     <script src="https://kit.fontawesome.com/2a0b426853.js" crossorigin="anonymous"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
@@ -33,18 +31,20 @@
     <div class="font-effect-shadow-multiple">This is a font effect!</div> -->
 
     <main class="row m-0 w-100 h-100">
-        <section class="d-flex justify-content-center align-items-center col-md-6 col-12 p-5 ">
+        <section class="d-flex justify-content-center align-items-center col-md-6 col-12 p-5">
             <div class="list px-md-5 mx-md-5">
                 <div class="mb-5">
                     <h1>Hi Noha</h1>
-                    <p class="text-muted">Welcome back to the workspace.We missed you!</p>
+                    <p class="text-muted">
+                        Welcome back to the workspace.We missed you!
+                    </p>
                 </div>
                 <div>
                     <div class="d-flex flex-wrap">
-                        <h6 class="mx-2">Lists </h6>
+                        <h6 class="mx-2">Lists</h6>
                         <h6 class="text-muted">(5)</h6>
                     </div>
-                    
+
                     <div class="listItem d-flex flex-wrap">
                         <button class="pink">Work</button>
                         <button class="blue">Home</button>
@@ -52,42 +52,34 @@
                         <button class="green">Project</button>
                         <button class="orange">Project</button>
                         <button class="">+</button>
-                    </div>  
+                    </div>
                 </div>
             </div>
-   
         </section>
         <section class="col-md-6 col-12 py-2">
-            <div class="tasks p-5 h-100"> 
+            <div class="tasks p-5 h-100">
                 <div class="mb-5">
                     <h1 id="listTitle">All Tasks</h1>
                     <p class="text-muted">Stay positive, work hard, make it happen!</p>
                 </div>
                 <div class="d-flex justify-content-between align-items-start">
-                    <h5 class="mx-2 my-0 fw-bold">Today </h5>
+                    <h5 class="mx-2 my-0 fw-bold">Today</h5>
                     <div class="d-flex justify-content-around align-items-start">
                         <div class="">
-                            <input type="text" class="form__input" id="newTask" placeholder="Task" value="">
+                            <input type="text" class="form__input" id="newTask" placeholder="Task" value="" />
                             <label for="tast" class="form__label">Task</label>
                         </div>
-                         <button id="addbtn" class="mx-2 addbtn btn btn-outline-dark">+</button>
+                        <button id="addbtn" class="mx-2 addbtn btn btn-outline-dark">+</button>
                     </div>
-                  
                 </div>
-                <hr class="m-0">
+                <hr class="m-0" />
                 <div class="scroll">
                     <ul id="todoList">
                         <li>
-                            <div>
-                              <button class="checkbtn"></button>
-                              <p>Task 4</p>
-                            </div>
-                            <button class="btn btn-close me-2"></button>
-                        </li> 
+                    
+                        </li>
                     </ul>
-
                 </div>
-                
             </div>
         </section>
     </main>

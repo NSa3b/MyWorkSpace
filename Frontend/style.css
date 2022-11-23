@@ -96,8 +96,9 @@ div .listItem > button {
 }
 
 
-.listItem p{
+.listItem button{
  margin: 0px;
+ font-weight: bold;
 }
 
 .addbtn{
