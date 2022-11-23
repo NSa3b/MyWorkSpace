@@ -1,0 +1,69 @@
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\appsettings.Development.json
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\appsettings.json
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\todo list.exe
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\todo list.deps.json
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\todo list.runtimeconfig.json
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\todo list.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\todo list.pdb
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Humanizer.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\System.Drawing.Common.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\System.Runtime.Caching.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\System.Security.Permissions.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\System.Windows.Extensions.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.csproj.AssemblyReference.cache
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.GeneratedMSBuildEditorConfig.editorconfig
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.AssemblyInfoInputs.cache
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.AssemblyInfo.cs
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.csproj.CoreCompileInputs.cache
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.MvcApplicationPartsAssemblyInfo.cs
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.MvcApplicationPartsAssemblyInfo.cache
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\staticwebassets.build.json
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\staticwebassets.development.json
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\scopedcss\bundle\todo list.styles.css
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.csproj.CopyComplete
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\refint\todo list.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.pdb
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\todo list.genruntimeconfig.cache
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\obj\Debug\net6.0\ref\todo list.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\efpt.config.json
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Castle.Core.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll

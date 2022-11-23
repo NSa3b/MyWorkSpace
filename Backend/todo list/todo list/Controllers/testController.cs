@@ -3,15 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace todo_list.Controllers
 {
-    [Route("api/[controller]")]  //api/test(tooken replacemnet) ___________ {} parameter passed in curly braces
+    [Route("api/[controller]")]
     [ApiController]
     public class testController : ControllerBase
     {
         [HttpGet]
-        public string getall()
+        public string getAll()
         {
-            return "welcome nahnoha";
+            return "welcome nahnoha!";
         }
-
     }
 }
