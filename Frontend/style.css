@@ -39,7 +39,7 @@ body {
     color: #f6f5f7;
 }
 
-div .listItem > button {
+div #listItem > button {
     background-color: rgba(255, 255, 252, 0.1);
     background-size: cover;
     background-repeat: no-repeat;

@@ -1,7 +1,7 @@
 let addBtn=document.getElementById("addbtn");
 let newtext=document.getElementById("newTask");
 let listTitle=document.getElementById("listTitle");
-let listItems=document.querySelectorAll(".listItem button");
+let listItems=document.querySelectorAll("#listItem button");
 
 function addTask() {
 
@@ -77,6 +77,9 @@ function init() {
 }
 
 init();
+
+
+
 
 
 
