@@ -29,8 +29,15 @@ namespace todo_list.Controllers
         [HttpGet("{ID:int}")]
         public ActionResult getbyId(int ID)
         {
-            var tasks = db.Tasks.FirstOrDefault(s => s.task_id == ID);
-            return Ok(tasks);
+            
+            var task = db.Tasks.FirstOrDefault(s => s.task_id == ID);
+            if(task == null)
+            {
+                return NotFound();
+            }
+            else
+                return Ok(task);
+           
         }
 
         //Get by List_ID
@@ -40,7 +47,9 @@ namespace todo_list.Controllers
         {
             var task = db.Tasks.Where(m => m.List_id == listid).ToList();
             if (task.Count == 0)
+            {
                 return NotFound();
+            }
             else
                 return Ok(task);
 

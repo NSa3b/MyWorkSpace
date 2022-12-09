@@ -1,26 +1,29 @@
+// import {Task} from "./task_class.js";
+// import {Task} from "./API_service.js";
+import * as service from "./API_service.js";
+
+
+
+
 let addBtn=document.getElementById("addbtn");
 let newtext=document.getElementById("newTask");
 let listTitle=document.getElementById("listTitle");
 let listbtn=document.querySelectorAll("#listItem button");
 let listItems=document.getElementById("listItem");
 
+const NoTask=function(){
+    let todoList=document.getElementById("todoList");
+    let msg =document.createElement("p");
+    msg.textContent="No tasks for today.Create some!"
+    todoList.appendChild(msg);
+
+}
 
 
-let getAllLists = new XMLHttpRequest();
-getAllLists.open("Get","https://localhost:44357/api/List");
-getAllLists.send();
+const showtasks=function(jsData){
 
-let getAlltasks = new XMLHttpRequest();
-getAlltasks.open("Get","https://localhost:44357/api/Task");
-getAlltasks.send();
-
-// let getTasksbyList=new XMLHttpRequest();
-// getTasksbyList.open("Get","https://localhost:44357/api/grouptasks/"+ListID);
-// getTasksbyList.send();
-
-
-
-let showtasks=function(jsData){
+    let todoList=document.getElementById("todoList");
+    todoList.textContent = '';
 
     for(let i=0;i<jsData.length;i++){
         // console.log(jsData[i]);
@@ -41,17 +44,19 @@ let showtasks=function(jsData){
 
         newContainer.append(newCheckBtn,newTask);
         newli.append(newContainer,newDeleteBtn);
-    
-        let todoList=document.getElementById("todoList");
+
         todoList.appendChild(newli);
 
-      }
+    }
 
 }
 
-let showLists=function(jsDataList){
+const showLists=function(jsDataList){
+
+    let listNum=document.getElementById("listNum");
+    listNum.textContent=(`(${jsDataList.length})`);
+
     for(let i=0;i<jsDataList.length;i++){
-        // console.log(jsDataList[i]);
 
         let newListbtn=document.createElement("button");
 
@@ -61,12 +66,17 @@ let showLists=function(jsDataList){
         
         listItems.appendChild(newListbtn);
 
-        newListbtn.onclick=function(){
-    
-            // for(let i of listItems)
-            // {
-            //     i.classList.remove("chosenList");
-            // }
+        newListbtn.onclick= async function(){
+
+            let Tasks= await service.getTaskbyListid(newListbtn.value);
+            showtasks(Tasks);
+
+            console.log(listbtn);
+            for(let i of listbtn)
+            {
+                console.log(i.textContent);
+                i.classList.remove("chosenList");
+            }
     
             newListbtn.classList.add("chosenList");
             listTitle.innerHTML=newListbtn.textContent;
@@ -80,18 +90,31 @@ let showLists=function(jsDataList){
 }
 
 
-getAlltasks.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      let jsData=JSON.parse(this.responseText);
-    //   console.log(jsData);
-      showtasks(jsData);
-    }
-};
+try{
+    let Task = await service.getTaskbyId(2); 
+}catch(e){
+    console.log(e);  
+}
+try{
+    let allTasks = await service.getAlltasks();
+    showtasks(allTasks);
+}catch(e){
+    NoTask();
+    console.log(e);  
+}
+try{
+    let allLists = await service.getAlllists();
+    showLists(allLists);
+}catch(e){
+    console.log(e);  
+}
 
-getAllLists.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      let jsDataList=JSON.parse(this.responseText);
-    //   console.log(jsDataList);
-      showLists(jsDataList);
-    }
-};
+     
+    
+   
+
+
+
+
+
+
