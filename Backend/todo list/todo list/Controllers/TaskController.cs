@@ -18,7 +18,7 @@ namespace todo_list.Controllers
         //Get All
 
         [HttpGet]
-        public ActionResult getAll()
+        public ActionResult GetAll()
         {
             return Ok(db.Tasks.ToList());
 
@@ -27,7 +27,7 @@ namespace todo_list.Controllers
         //Get byID
 
         [HttpGet("{ID:int}")]
-        public ActionResult getbyId(int ID)
+        public ActionResult GetbyId(int ID)
         {
             
             var task = db.Tasks.FirstOrDefault(s => s.task_id == ID);
@@ -43,7 +43,7 @@ namespace todo_list.Controllers
         //Get by List_ID
 
         [HttpGet("/api/grouptasks/{listid}")]
-        public ActionResult getbyListId(int listid)
+        public ActionResult GetbyListId(int listid)
         {
             var task = db.Tasks.Where(m => m.List_id == listid).ToList();
             if (task.Count == 0)
@@ -58,7 +58,7 @@ namespace todo_list.Controllers
         //Add task
 
         [HttpPost]
-        public ActionResult add(Models.Task T)
+        public ActionResult Add(TaskDTO model)
         {
             if (T==null)
             {
@@ -66,11 +66,17 @@ namespace todo_list.Controllers
             }
             else
             {
-                db.Tasks.Add(T);
+                var entity = new Models.Task{
+                    name = model.name,
+                    done = mode.done,
+                    datetime = DateTime.Now,
+                    List_id = model.List_id,
+                };
+                db.Tasks.Add(entity);
                 try
                 {
                     db.SaveChanges();
-                    return Created("task added!", db.Tasks.ToList());
+                    return Created("task added!", entity);
                 }
                 catch
                 {
@@ -92,7 +98,7 @@ namespace todo_list.Controllers
         }
 */
         [HttpPut]
-        public ActionResult edit(Models.Task T)
+        public ActionResult Edit(Models.Task T)
         {
             if (ModelState.IsValid)
             {
@@ -109,7 +115,7 @@ namespace todo_list.Controllers
         //Delete
 
         [HttpDelete("{id}")]
-        public ActionResult delete(int id)
+        public ActionResult Delete(int id)
         {
             Models.Task T=db.Tasks.FirstOrDefault(t=>t.task_id == id);
             if (T == null)
