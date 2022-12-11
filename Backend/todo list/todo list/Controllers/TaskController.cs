@@ -60,7 +60,7 @@ namespace todo_list.Controllers
         [HttpPost]
         public ActionResult Add(TaskDTO model)
         {
-            if (T==null)
+            if (model==null)
             {
                 return BadRequest(ModelState);
             }
