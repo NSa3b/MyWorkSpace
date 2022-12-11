@@ -66,11 +66,13 @@ namespace todo_list.Controllers
             }
             else
             {
+                T.date_added= DateTime.Now;
                 db.Tasks.Add(T);
                 try
                 {
+                    var tasks = db.Tasks.Where(m => m.List_id == T.List_id).ToList();
                     db.SaveChanges();
-                    return Created("task added!", db.Tasks.ToList());
+                    return Created("task added!", tasks);
                 }
                 catch
                 {
@@ -81,24 +83,15 @@ namespace todo_list.Controllers
 
         //Edit task
 
-   /*     [HttpPut("{id}")]
-        public ActionResult edit(Models.Task T,int id)
-        {
-
-        }
-        public ActionResult edit([FromQuery] string name,[FromRoute] int id)
-        {
-
-        }
-*/
         [HttpPut]
         public ActionResult edit(Models.Task T)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(T).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                var tasks = db.Tasks.Where(m => m.List_id == T.List_id).ToList();
                 db.SaveChanges();
-                return NoContent();
+                return Created("task edited!", tasks);
             }
             else
             {

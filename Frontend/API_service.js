@@ -1,3 +1,5 @@
+// import Task from "./task_class.js";
+
 const baseURL="https://localhost:44357/api/";
 
 function checkFetch(response){
@@ -14,6 +16,18 @@ function checkFetch(response){
     //     throw new Error("server error");
     // }
 }
+/*______________ Lists _________________________ */
+
+export async function getAlllists(){
+    let response = await fetch(`${baseURL}List`);
+    checkFetch(response);
+    let allLists = await response.json();
+    return allLists;
+}
+
+
+/*______________ Tasks _________________________ */
+
 
 export async function getAlltasks(){
     
@@ -23,19 +37,11 @@ export async function getAlltasks(){
     return allTasks;
 }
 
-export async function getAlllists(){
-    let response = await fetch(`${baseURL}List`);
-    checkFetch(response);
-    let allLists = await response.json();
-    return allLists;
-}
-
 export async function getTaskbyId(id){
     let response = await fetch(`${baseURL}Task/${id}`);
     checkFetch(response);
     let Task = await response.json();
     return Task;
-
 }
 export async function getTaskbyListid(id){
     let response = await fetch(`${baseURL}grouptasks/${id}`);
@@ -44,35 +50,29 @@ export async function getTaskbyListid(id){
     return Tasks;
 }
 
- 
+export async function addTask(Task){
+    let response = await fetch(`${baseURL}Task`,{
+        method:"POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(Task),
+    });
+    checkFetch(response);
+    let Tasks = await response.json();
+}
 
-
-
-    
-
-
-// let allTasks=async function(){
-//     try{
-//         let allTasks=await getAlltasks();
-//         console.log(allTasks);
-//     }
-//     catch(error){
-//         console.log("something went wrong!",error)
-//     }
-     
-// }
-
-// let Tasks=async function(){
-//     try{
-//         let Tasks=await getTaskbyId();
-//         // console.log(Tasks);
-//         return Tasks;
-//     }
-//     catch(error){
-//         console.log("something went wrong!",error)
-//     }
-     
-// }
+export async function editTask(Task){
+    let response = await fetch(`${baseURL}Task`,{
+        method:"PUT",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(Task),
+    });
+    checkFetch(response);
+    let Tasks = await response.json();
+}
 
 
 

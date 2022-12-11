@@ -12,6 +12,7 @@ namespace todo_list.Models
     public partial class Task
     {
         [Key]
+        /*[DatabaseGenerated(DatabaseGeneratedOption.Identity)]*/
         public int task_id { get; set; }
         [Unicode(false)]
         public string name { get; set; }

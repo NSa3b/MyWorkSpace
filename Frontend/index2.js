@@ -1,6 +1,7 @@
 // import {Task} from "./task_class.js";
 // import {Task} from "./API_service.js";
 import * as service from "./API_service.js";
+import * as task from "./task_class.js";
 
 
 
@@ -11,12 +12,15 @@ let listTitle=document.getElementById("listTitle");
 let listbtn=document.querySelectorAll("#listItem button");
 let listItems=document.getElementById("listItem");
 
-const NoTask=function(){
+const noTask=function(){
     let todoList=document.getElementById("todoList");
     let msg =document.createElement("p");
     msg.textContent="No tasks for today.Create some!"
     todoList.appendChild(msg);
 
+}
+const noTaskadded=function(){
+    alert("No task added!");
 }
 
 
@@ -51,6 +55,25 @@ const showtasks=function(jsData){
 
 }
 
+const showListtasks = async function(btnNode){
+
+    let Tasks= await service.getTaskbyListid(btnNode.value);
+    showtasks(Tasks);
+
+    console.log(btnNode);
+
+    // for(let i of listbtn)
+    // {
+    //     console.log(i.textContent);
+    //     i.classList.remove("chosenList");
+    // }
+
+    btnNode.classList.add("chosenList");
+    listTitle.innerHTML=btnNode.textContent;
+}
+
+
+
 const showLists=function(jsDataList){
 
     let listNum=document.getElementById("listNum");
@@ -65,46 +88,63 @@ const showLists=function(jsDataList){
         newListbtn.value=jsDataList[i].list_id;
         
         listItems.appendChild(newListbtn);
+    }
 
-        newListbtn.onclick= async function(){
+    let listbtns=document.querySelectorAll("#listItem button");
 
-            let Tasks= await service.getTaskbyListid(newListbtn.value);
+    for(let btn of listbtns){
+
+        btn.onclick = async function(){
+            let Tasks= await service.getTaskbyListid(btn.value);
             showtasks(Tasks);
 
-            console.log(listbtn);
-            for(let i of listbtn)
-            {
-                console.log(i.textContent);
-                i.classList.remove("chosenList");
+            for(let btn of listbtns){
+                btn.classList.remove("chosenList");
             }
-    
-            newListbtn.classList.add("chosenList");
-            listTitle.innerHTML=newListbtn.textContent;
 
-
-
-        };
-
+            btn.classList.add("chosenList");
+            listTitle.innerHTML=btn.textContent;
+        } 
     }
 
 }
 
+// ________________________List_______________________
+try{
+    let allLists = await service.getAlllists();
+    showLists(allLists);
+    
+}catch(e){
+    console.log(e);  
+}
+
+// ________________________Task_______________________
 
 try{
     let Task = await service.getTaskbyId(2); 
 }catch(e){
     console.log(e);  
 }
+
 try{
     let allTasks = await service.getAlltasks();
     showtasks(allTasks);
 }catch(e){
-    NoTask();
+    noTask();
     console.log(e);  
 }
+
 try{
-    let allLists = await service.getAlllists();
-    showLists(allLists);
+    let withAddedtasks = await service.addTask(Task);
+    showtasks(withAddedtasks);
+}catch(e){
+    noTaskadded();
+    console.log(e);  
+}
+
+try{
+    let withEditedtasks = await service.editTask(Task);
+    showtasks(withEditedtasks);
 }catch(e){
     console.log(e);  
 }
