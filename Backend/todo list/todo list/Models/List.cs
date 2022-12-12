@@ -28,7 +28,7 @@ namespace todo_list.Models
         public string color { get; set; }
 
         [InverseProperty("List")]
-       //[JsonIgnore]
+        [JsonIgnore]
         public virtual ICollection<Task> Tasks { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace todo_list.Models
@@ -23,6 +24,7 @@ namespace todo_list.Models
 
         [ForeignKey("List_id")]
         [InverseProperty("Tasks")]
+        [JsonIgnore]
         public virtual List List { get; set; }
     }
 }

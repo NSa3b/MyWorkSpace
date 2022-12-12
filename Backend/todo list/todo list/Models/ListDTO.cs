@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+
+namespace todo_list.Models
+{
+    public class ListDTO
+    {
+        public string name { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string color { get; set; }
+        public virtual ICollection<Task> Tasks { get; set; }
+        public ListDTO()
+        {
+            Tasks = new HashSet<Task>();
+        }
+    }
+}

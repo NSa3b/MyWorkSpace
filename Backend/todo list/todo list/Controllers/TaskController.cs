@@ -66,20 +66,19 @@ namespace todo_list.Controllers
             }
             else
             {
-                T.date_added= DateTime.Now;
-                db.Tasks.Add(T);
+                
                 var entity = new Models.Task{
                     name = model.name,
-                    done = mode.done,
-                    datetime = DateTime.Now,
+                    done = model.done,
+                    date_added = DateTime.Now,
                     List_id = model.List_id,
                 };
+
                 db.Tasks.Add(entity);
                 try
                 {
-                    var tasks = db.Tasks.Where(m => m.List_id == T.List_id).ToList();
+                    var tasks = db.Tasks.Where(m => m.List_id == model.List_id).ToList();
                     db.SaveChanges();
-
                     return Created("task added!", tasks);
                 }
 
