@@ -5,10 +5,21 @@ string MyAllowSpecificOrigins = "m";
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddConsole();
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers().AddNewtonsoftJson(n=>n.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 builder.Services.AddDbContext<MyWorkspaceContext>(option=>option.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("todo_con")));
+
+//Registering AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

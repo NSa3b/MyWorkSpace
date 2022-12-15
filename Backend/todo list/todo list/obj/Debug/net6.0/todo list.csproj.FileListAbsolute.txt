@@ -67,3 +67,5 @@ E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Ne
 E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Castle.Core.dll
 E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
 E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\AutoMapper.dll
+E:\Noha\iti\self-study\Todo List\Backend\todo list\todo list\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using todo_list.Models;
+using todo_list.DTO;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace todo_list.Controllers
 {
@@ -10,18 +13,24 @@ namespace todo_list.Controllers
     public class ListController : ControllerBase
     {
         MyWorkspaceContext db;
-        public ListController(MyWorkspaceContext _db)
+        private readonly IMapper mapper;
+        private readonly ILogger logger;
+        public ListController(MyWorkspaceContext _db, IMapper _mapper, ILogger<TaskController> _logger)
         {
             this.db = _db;
+            this.mapper = _mapper;
+            this.logger = _logger;
         }
 
 
         //Get All
 
         [HttpGet]
-        public ActionResult getAll()
+        public ActionResult GetAll()
         {
-            return Ok(db.Lists.ToList());
+            var allLists = db.Lists.ToList();
+            var allListsDTO = mapper.Map<List<ListDTO>>(allLists);
+            return Ok(allListsDTO);
 
         }
 
@@ -29,15 +38,18 @@ namespace todo_list.Controllers
         //Get byID
 
         [HttpGet("{ID:int}")]
-        public ActionResult getbyId(int ID)
+        public ActionResult GetbyId(int ID)
         {
-            var list = db.Lists.FirstOrDefault(s => s.List_id == ID);
+            
+            var list = db.Lists.FirstOrDefault(s => s.id == ID);
+            var listDTO = mapper.Map<ListDTO>(list);
+
             if (list == null)
             {
                 return NotFound();
             }
             else
-                return Ok(list);
+                return Ok(listDTO);
             
         }
 
@@ -45,19 +57,26 @@ namespace todo_list.Controllers
         //Add List
 
         [HttpPost]
-        public ActionResult add(List L)
+        public ActionResult Add(ListDTO model)
         {
-            if (L == null)
+            if (model == null)
             {
                 return BadRequest(ModelState);
             }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("model not valid");
+            }
             else
             {
-                db.Lists.Add(L);
                 try
                 {
+                    var entity = mapper.Map<Models.List>(model);
+                    db.Lists.Add(entity);
                     db.SaveChanges();
-                    return Created("new List added!", db.Lists.ToList());
+                    var allListsDTO = mapper.Map<List<ListDTO>>(db.Lists.ToList());
+                    return Created("task added!", allListsDTO);
                 }
                 catch
                 {
@@ -69,13 +88,16 @@ namespace todo_list.Controllers
         //Edit List
 
         [HttpPut]
-        public ActionResult edit(List L)
+        public ActionResult edit(ListDTO model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(L).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                var entity = mapper.Map<Models.List>(model);
+                db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 db.SaveChanges();
-                return NoContent();
+
+                var allListsDTO = mapper.Map<List<ListDTO>>(db.Lists.ToList());
+                return Created("task added!", allListsDTO);
             }
             else
             {
@@ -89,16 +111,17 @@ namespace todo_list.Controllers
         [HttpDelete("{id}")]
         public ActionResult delete(int id)
         {
-            List L = db.Lists.FirstOrDefault(l => l.List_id == id);
-            if (L == null)
+            List entity = db.Lists.FirstOrDefault(l => l.id == id);
+            if (entity == null)
             {
                 return NotFound();
             }
             else
             {
-                db.Lists.Remove(L);
+                db.Lists.Remove(entity);
                 db.SaveChanges();
-                return Ok(db.Lists.ToList());
+                var allListsDTO = mapper.Map<List<ListDTO>>(db.Lists.ToList());
+                return Ok(allListsDTO);
             }
         }
     }

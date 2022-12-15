@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "d6bhIFqdEiYLN1oDU4CCiKEV+Hn96BFpg9Dzx171TEPGpzKgrqEBfxwssPsdtWp2uj0L307zQEqySTdu6WMOJA==",
+  "dgSpecHash": "+ZHifVk3ZHoAEakmur6vnDeumCSDnSckgkpmiXGY9stH8e0PrRh8WrA4d/6msI05BIyRLldse1BABYEYmUMrXg==",
   "success": true,
   "projectFilePath": "E:\\Noha\\iti\\self-study\\Todo List\\Backend\\todo list\\todo list\\todo list.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\NohaSaab\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\NohaSaab\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\NohaSaab\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\NohaSaab\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\NohaSaab\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.9\\microsoft.aspnetcore.jsonpatch.6.0.9.nupkg.sha512",
