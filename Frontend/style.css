@@ -54,12 +54,12 @@ div #listItem > button {
     margin: 25px 15px;
 }
 
-.chosenList{   
+#chosenList{   
     outline: 3px solid;   
     outline-offset: 4px;
 }
 
-.chosenList:focus:not(:focus-visible) {
+#chosenList:focus:not(:focus-visible) {
     outline: 3px solid;    
 }
 

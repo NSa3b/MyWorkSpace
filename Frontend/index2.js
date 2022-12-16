@@ -1,36 +1,63 @@
-// import {Task} from "./task_class.js";
-// import {Task} from "./API_service.js";
 import * as service from "./API_service.js";
-import * as task from "./task_class.js";
+import {Task} from "./Model_class.js";
+
+// ________________________List_______________________
+
+let allLists = await service.getAlllists();
+
+let ListbyId = function(x){
+  return  service.getListbyId(x); 
+}
+
+// ________________________Task_______________________
+
+let allTasks = await service.getAlltasks();
+
+let getTaskbyListid= function(listId){
+   return service.getTaskbyListid(listId)
+}
+
+let getTaskbyId= function(Id){
+    return service.getTaskbyId(Id)
+}
+
+let AddTask =function(Task){
+    return service.addTask(Task);
+} 
+let editTask =function(Task){
+    return service.editTask(Task);
+}
+let deleteTaskbyId= function(Id){
+    return service.deleteTask(Id)
+}
 
 
 
 
-let addBtn=document.getElementById("addbtn");
-let newtext=document.getElementById("newTask");
-let listTitle=document.getElementById("listTitle");
-let listbtn=document.querySelectorAll("#listItem button");
-let listItems=document.getElementById("listItem");
 
-const noTask=function(){
+
+
+
+
+export const noTask=async function(){
+
     let todoList=document.getElementById("todoList");
     let msg =document.createElement("p");
     msg.textContent="No tasks for today.Create some!"
     todoList.appendChild(msg);
 
 }
-const noTaskadded=function(){
+export const noTaskadded= async function(){
     alert("No task added!");
 }
 
 
-const showtasks=function(jsData){
+const showtasks= function(jsData){
 
     let todoList=document.getElementById("todoList");
     todoList.textContent = '';
 
     for(let i=0;i<jsData.length;i++){
-        // console.log(jsData[i]);
 
         let newli =document.createElement("li");
         let newContainer=document.createElement("div")
@@ -39,8 +66,12 @@ const showtasks=function(jsData){
         let newDeleteBtn=document.createElement("button");
   
         newTask.textContent=jsData[i].name;
+
         newCheckBtn.classList.add(jsData[i].list.color+"btn","checkbtn");
+        newCheckBtn.value=jsData[i].id;
+        
         newDeleteBtn.classList.add("btn","btn-close","me-2");
+        newDeleteBtn.value=jsData[i].id;
 
         if(jsData[i].done){
             newli.classList.add("checked");
@@ -55,29 +86,13 @@ const showtasks=function(jsData){
 
 }
 
-const showListtasks = async function(btnNode){
-
-    let Tasks= await service.getTaskbyListid(btnNode.value);
-    showtasks(Tasks);
-
-    console.log(btnNode);
-
-    // for(let i of listbtn)
-    // {
-    //     console.log(i.textContent);
-    //     i.classList.remove("chosenList");
-    // }
-
-    btnNode.classList.add("chosenList");
-    listTitle.innerHTML=btnNode.textContent;
-}
-
-
 
 const showLists=function(jsDataList){
 
     let listNum=document.getElementById("listNum");
     listNum.textContent=(`(${jsDataList.length})`);
+
+    let listItems=document.getElementById("listItem");
 
     for(let i=0;i<jsDataList.length;i++){
 
@@ -85,7 +100,7 @@ const showLists=function(jsDataList){
 
         newListbtn.textContent=jsDataList[i].name;
         newListbtn.classList.add(jsDataList[i].color);
-        newListbtn.value=jsDataList[i].list_id;
+        newListbtn.value=jsDataList[i].id;
         
         listItems.appendChild(newListbtn);
     }
@@ -95,66 +110,81 @@ const showLists=function(jsDataList){
     for(let btn of listbtns){
 
         btn.onclick = async function(){
-            let Tasks= await service.getTaskbyListid(btn.value);
+
+            let Tasks= await getTaskbyListid(btn.value);
             showtasks(Tasks);
 
             for(let btn of listbtns){
-                btn.classList.remove("chosenList");
+                btn.setAttribute("id","");
             }
+            btn.setAttribute("id","chosenList");
 
-            btn.classList.add("chosenList");
+            let listTitle=document.getElementById("listTitle");
             listTitle.innerHTML=btn.textContent;
         } 
     }
 
 }
 
-// ________________________List_______________________
-try{
-    let allLists = await service.getAlllists();
-    showLists(allLists);
     
-}catch(e){
-    console.log(e);  
-}
-
-// ________________________Task_______________________
-
-try{
-    let Task = await service.getTaskbyId(2); 
-}catch(e){
-    console.log(e);  
-}
-
-try{
-    let allTasks = await service.getAlltasks();
-    showtasks(allTasks);
-}catch(e){
-    noTask();
-    console.log(e);  
-}
-
-try{
-    let withAddedtasks = await service.addTask(Task);
-    showtasks(withAddedtasks);
-}catch(e){
-    noTaskadded();
-    console.log(e);  
-}
-
-try{
-    let withEditedtasks = await service.editTask(Task);
-    showtasks(withEditedtasks);
-}catch(e){
-    console.log(e);  
-}
-
-     
-    
-   
+showLists(allLists);
+showtasks(allTasks);
 
 
+document.addEventListener("click",async function(event){
+
+    if(event.target.matches('.checkbtn')){
+        let id=event.target.value;
+        let task = await getTaskbyId(id)
+        if(task.done){
+
+            task.done=false;
+            console.log(task);
+            let returnedTasks = await editTask(task);
+            console.log(returnedTasks);
+            showtasks(returnedTasks);
+        
+        }
+        else{
+            task.done=true;
+            console.log(task);
+            let returnedTasks = await editTask(task);
+            console.log(returnedTasks);
+            showtasks(returnedTasks);
+        }
+    }
+    if(event.target.matches(".btn-close")){
+        let id=event.target.value;
+        console.log(id);
+        let returnedTasks= await deleteTaskbyId(id);
+        showtasks(returnedTasks);
+    }
+});
+
+let addBtn=document.getElementById("addbtn");
+addBtn.addEventListener("click", async function(){
+
+    let newtext=document.getElementById("newTask").value;
+    console.log(newtext);
+    if(newtext!=""){
+
+        let chosenList=document.getElementById("chosenList");
+        if(chosenList==null){
+            alert("you have to specify a list to add the task to it :)")
+        }
+        let chosenListid=chosenList.value;
+        let task= new Task(null,newtext,false,null,chosenListid);
+        let returnedTasks=await AddTask(task);
+        showtasks(returnedTasks);
+    }
+    else{
+        alert("no task to add.write something!:)")
+    }
+
+
+})
 
 
 
 
+ 

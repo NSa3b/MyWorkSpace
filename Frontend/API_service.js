@@ -1,4 +1,6 @@
 // import Task from "./task_class.js";
+import { noTask } from "./index2.js";
+import { noTaskadded } from "./index2.js";
 
 const baseURL="https://localhost:44357/api/";
 
@@ -8,13 +10,6 @@ function checkFetch(response){
     }else{
         throw new Error(`${response.status}`);
     }
-    // }else if(response.status === 404){
-    //     throw new Error("404 Not found");
-    // }else if(response.status === 400){
-    //     throw new Error("400 Bad Request");
-    // }else if(response.status >= 500){
-    //     throw new Error("server error");
-    // }
 }
 /*______________ Lists _________________________ */
 
@@ -25,12 +20,18 @@ export async function getAlllists(){
     return allLists;
 }
 
+export async function getListbyId(id){
+    let response = await fetch(`${baseURL}List/${id}`);
+    checkFetch(response);
+    let List = await response.json();
+    return List;
+}
 
-/*______________ Tasks _________________________ */
+
+/*_______________________ Tasks _________________________ */
 
 
 export async function getAlltasks(){
-    
     let response = await fetch(`${baseURL}Task`);
     checkFetch(response);
     let allTasks = await response.json();
@@ -43,8 +44,10 @@ export async function getTaskbyId(id){
     let Task = await response.json();
     return Task;
 }
+
 export async function getTaskbyListid(id){
-    let response = await fetch(`${baseURL}grouptasks/${id}`);
+   
+    let response = await fetch(`${baseURL}grouptasks/${id}`)
     checkFetch(response);
     let Tasks = await response.json();
     return Tasks;
@@ -60,6 +63,7 @@ export async function addTask(Task){
     });
     checkFetch(response);
     let Tasks = await response.json();
+    return Tasks;
 }
 
 export async function editTask(Task){
@@ -72,6 +76,20 @@ export async function editTask(Task){
     });
     checkFetch(response);
     let Tasks = await response.json();
+    return Tasks;
+}
+
+export async function deleteTask(id){
+    let response = await fetch(`${baseURL}Task/${id}`,{
+        method:"DELETE",
+        headers:{
+            "Content-type":"application/json"
+        }
+    });
+    console.log(response);
+    checkFetch(response);
+    let Tasks = await response.json();
+    return Tasks;
 }
 
 
