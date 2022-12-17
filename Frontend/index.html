@@ -24,36 +24,25 @@
 </head>
 
 <body>
-    <!-- <h1 class="fw-bold">Hello</h1>
-    <h1 class="">Hello</h1>
-    <button class="btn btn-primary">bla</button>
-    <i class="fa-solid fa-user"></i>
-    <div class="font-effect-shadow-multiple">This is a font effect!</div> -->
 
     <main class="row m-0 w-100 h-100">
         <section class="d-flex justify-content-center align-items-center col-md-6 col-12 p-5">
             <div class="list px-md-5 mx-md-5">
-                <div class="mb-5">
+                <div class="mb-4">
                     <h1>Hi Noha</h1>
                     <p class="text-muted">
                         Welcome back to the workspace.We missed you!
                     </p>
                 </div>
                 <div>
+                    <button id="showAlltasks">ALL Tasks</button>
                     <div class="d-flex flex-wrap">
                         <h6 class="mx-2">Lists</h6>
                         <h6 id="listNum" class="text-muted">(5)</h6>
                     </div>
 
                     <div id="listItem" class=" d-flex flex-wrap">
-                        <!-- <button class="pink">Work</button>
-                        <button class="blue">Home</button>
-                        <button class="purple">Personal</button>
-                        <button class="green">Project</button>
-                        <button class="orange">Project</button>
-                        
-                        <button class="">+</button> -->
-                        
+                        <button data-bs-toggle="modal" data-bs-target="#addlist">+</button>
                     </div>
                 </div>
             </div>
@@ -61,7 +50,20 @@
         <section class="col-md-6 col-12 py-2">
             <div class="tasks p-5 h-100">
                 <div class="mb-5">
-                    <h1 id="listTitle">All Tasks</h1>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 id="listTitle">All Tasks</h1>
+                        <details class="dropdown">
+                            <summary role="button">
+                                <i class="fa-solid fa-ellipsis fa-xl"></i>
+                            </summary>
+                            <ul>
+                                <li><a href="#" id="openEditlist" data-bs-toggle="modal" data-bs-target="#editlist">Edit List</a></li>
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#deletelist">Delete List</a></li>
+
+                            </ul>
+                        </details>
+                    </div>
+
                     <p class="text-muted">Stay positive, work hard, make it happen!</p>
                 </div>
                 <div class="d-flex justify-content-between align-items-start">
@@ -71,24 +73,108 @@
                             <input type="text" class="form__input" id="newTask" placeholder="Task" value="" />
                             <label for="tast" class="form__label">Task</label>
                         </div>
-                        <button id="addbtn" class="mx-2 addbtn btn btn-outline-dark">+</button>
+                        <button id="addtaskbtn" class="mx-2 btn btn-outline-dark">+</button>
                     </div>
                 </div>
                 <hr class="m-0" />
                 <div class="scroll">
                     <ul id="todoList">
                         <li>
-                    
+
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
+
+        <!-- ADD LIST Modal -->
+        <div class="modal fade" id="addlist" tabindex="-1" aria-labelledby="addlistLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add new list</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body mt-4">
+
+                        <div class="">
+                            <input type="text" class="form__input" id="newList" placeholder="List name" value="" />
+                            <label for="List" class="form__label">List name</label>
+                        </div>
+                        <div id="listcolors" class=" d-flex flex-wrap">
+                            <button id="chosenListcolor" class="pinkcol" value="pink"></button>
+                            <button id="" class="bluecol" value="blue"></button>
+                            <button id="" class="purplecol" value="purple"></button>
+                            <button id="" class="greencol" value="green"></button>
+                            <button id="" class="orangecol" value="orange"></button>
+                            <button id="" class="redcol" value="red"></button>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="addlistbtn" type="button" class="btn btn-dark">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- EDIT LIST Modal -->
+        <div class="modal fade" id="editlist" tabindex="-1" aria-labelledby="editlistLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit list</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body mt-4">
+
+                        <div class="">
+                            <input type="text" class="form__input" id="existingList" placeholder="List name" value="" />
+                            <label for="List" class="form__label">List name</label>
+                        </div>
+                        <div id="listcolors" class=" d-flex flex-wrap">
+                            <button id="" class="pinkcol" value="pink"></button>
+                            <button id="" class="bluecol" value="blue"></button>
+                            <button id="" class="purplecol" value="purple"></button>
+                            <button id="" class="greencol" value="green"></button>
+                            <button id="" class="orangecol" value="orange"></button>
+                            <button id="" class="redcol" value="red"></button>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="editlistbtn" type="button" class="btn btn-dark" data-bs-dismiss="modal">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+           <!-- DELETE LIST Modal -->
+           <div class="modal fade" id="deletelist" tabindex="-1" aria-labelledby="deletelistLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body mt-4">
+                        <p>Deleting this list will also delete all its tasks.</br>Delete anyways? </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
+                        <button id="deletelistbtn" type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
     </main>
     <!-- <script src="./index.js"></script> -->
     <script type="module" src="./index2.js"></script>
     <script type="module" src="./API_service.js"></script>
-    
+
 </body>
 
 </html>

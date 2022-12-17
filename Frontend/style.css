@@ -9,6 +9,16 @@
     --green:rgb(25, 97, 99);
     --orange:rgb(255,165,42);
     --red:rgb(116,26,24);
+    --beige-background:#f6f5f7;
+    --dark-background:#1f1f29;
+
+    --button-background: dodgerblue;
+    --button-color: white;
+    
+    --dropdown-highlight: dodgerblue;
+    --dropdown-width: 160px;
+    --dropdown-background: white;
+    --dropdown-color: black;
 }
 
 * {
@@ -25,7 +35,7 @@ body {
 	height: 100vh;
 }
 .tasks{
-    background: #f6f5f7;
+    background:var(--beige-background);
     border-radius: 20px;
     display:flex;
     flex-direction: column;
@@ -39,7 +49,13 @@ body {
     color: #f6f5f7;
 }
 
-div #listItem > button {
+#showAlltasks{
+   border-radius: 0.6rem;
+   margin-bottom: 1rem;
+   font-weight:500;
+}
+
+div #listItem > button{
     background-color: rgba(255, 255, 252, 0.1);
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,8 +67,11 @@ div #listItem > button {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    margin: 25px 15px;
+    margin: 20px 15px;
+
+    font-weight: bold;
 }
+
 
 #chosenList{   
     outline: 3px solid;   
@@ -96,12 +115,9 @@ div #listItem > button {
 }
 
 
-.listItem button{
- margin: 0px;
- font-weight: bold;
-}
 
-.addbtn{
+
+#addtaskbtn{
     border-radius: 1.1rem !important;
     padding: 0.3rem 0.75rem  !important; 
 
@@ -190,23 +206,38 @@ li p{
 }
 
 
-.checked div button.pinkbtn{
+.checked div button.pinkbtn,
+#listcolors > button.pinkcol{
     background-color: var(--pink);
+    outline-color:var(--pink);
 }
-.checked div button.bluebtn{
+.checked div button.bluebtn,
+#listcolors > button.bluecol{
     background-color:var(--blue);
+    outline-color:var(--blue);
 }
-.checked div button.purplebtn{
+.checked div button.purplebtn,
+#listcolors > button.purplecol{
     background-color:var(--purple);
+    outline-color:var(--purple);
 }
-.checked div button.greenbtn{
+.checked div button.greenbtn,
+#listcolors > button.greencol{
     background-color: var(--green);
+    outline-color:var(--green);
+
 }
-.checked div button.orangebtn{
+.checked div button.orangebtn,
+#listcolors > button.orangecol{
     background-color:var(--orange);
+    outline-color:var(--orange);
+
 }
-.checked div button.redbtn{
+.checked div button.redbtn,
+#listcolors > button.redcol{
     background-color:var(--red);
+    outline-color:var(--red);
+
 }
 
 .checked div button::before {
@@ -246,3 +277,143 @@ li p{
 }
 
 
+
+/* Boring button styles */
+i.button {
+  /* Frame */
+  display: inline-block;
+  padding: 20px 28px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  
+  /* Style */
+  border: none;
+  background: var(--button-background);
+  color: var(--button-color);
+  cursor: pointer;
+}
+
+i.button:active {
+  filter: brightness(75%);
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  padding: 0;
+  margin-right: 1em;
+  
+  border: none;
+}
+
+.dropdown summary {
+  list-style: none;
+  list-style-type: none;
+}
+
+.dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown summary:focus {
+  outline: none;
+}
+
+.dropdown summary:focus a.button {
+  border: 2px solid white;
+}
+
+.dropdown summary:focus {
+  outline: none;
+}
+
+.dropdown ul {
+  position: absolute;
+  margin: 20px 0 0 0;
+  padding: 20px 0;
+  width: var(--dropdown-width);
+  left: 50%;
+  margin-left: calc((var(--dropdown-width) / 2)  * -1);
+  box-sizing: border-box;
+  z-index: 2;
+  
+  background: var(--dropdown-background);
+  border-radius: 6px;
+  list-style: none;
+}
+
+.dropdown ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li a:link, .dropdown ul li a:visited {
+  display: inline-block;
+  padding: 10px 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
+  
+  color: var(--dark-background);
+  text-decoration: none;
+}
+
+.dropdown ul li a:hover {
+  background-color: var(--dark-background);
+  color: var(--dropdown-background);
+}
+
+/* Dropdown triangle */
+.dropdown ul::before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent var(--dropdown-background) transparent;
+}
+
+
+/* Close the dropdown with outside clicks */
+.dropdown > summary::before {
+  display: none;
+}
+
+.dropdown[open] > summary::before {
+    content: ' ';
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.modal-content{
+    background:var(--beige-background);
+}
+
+#listcolors  button{
+    color:white;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    margin: 6px 6px;
+}
+
+#chosenListcolor,
+#existingListcolor{   
+    outline: 2.5px solid;   
+    outline-offset: 2.5px;
+}
+/* #chosenListcolor:focus:not(:focus-visible) {
+    outline: 2.5px solid;    
+} */

@@ -1,6 +1,4 @@
-// import Task from "./task_class.js";
-import { noTask } from "./index2.js";
-import { noTaskadded } from "./index2.js";
+
 
 const baseURL="https://localhost:44357/api/";
 
@@ -25,6 +23,45 @@ export async function getListbyId(id){
     checkFetch(response);
     let List = await response.json();
     return List;
+}
+
+export async function addList(List){
+    let response = await fetch(`${baseURL}List`,{
+        method:"POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(List),
+    });
+    checkFetch(response);
+    let Lists = await response.json();
+    return Lists;
+}
+
+export async function editList(List){
+    let response = await fetch(`${baseURL}List`,{
+        method:"PUT",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(List),
+    });
+    checkFetch(response);
+    let Lists = await response.json();
+    return Lists;
+}
+
+export async function deleteList(id){
+    let response = await fetch(`${baseURL}List/${id}`,{
+        method:"DELETE",
+        headers:{
+            "Content-type":"application/json"
+        }
+    });
+    console.log(response);
+    checkFetch(response);
+    let Lists = await response.json();
+    return Lists;
 }
 
 
