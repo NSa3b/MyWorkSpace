@@ -50,9 +50,10 @@ let deleteTaskbyId= function(Id){
  const noTask= function(){
    
     let todoList=document.getElementById("todoList");
-    todoList.textContent = '';
+    let oldtodoList=document.getElementById("oldtodoList");
+    oldtodoList.textContent = todoList.textContent = '';
     let msg =document.createElement("p");
-    msg.textContent="No tasks for today.Create some!"
+    msg.textContent="No tasks in this List.Create some!"
     todoList.appendChild(msg);
 
 }
@@ -64,7 +65,8 @@ let deleteTaskbyId= function(Id){
 const showtasks= function(jsData){
 
     let todoList=document.getElementById("todoList");
-    todoList.textContent = '';
+    let oldtodoList=document.getElementById("oldtodoList");
+    oldtodoList.textContent = todoList.textContent = '';
 
     for(let i=0;i<jsData.length;i++){
 
@@ -90,7 +92,22 @@ const showtasks= function(jsData){
         newContainer.append(newCheckBtn,newTask);
         newli.append(newContainer,newDeleteBtn);
 
-        todoList.appendChild(newli);
+        let Today=new Date()
+        Today.setUTCHours(0,0,0,0);
+        Today=Today.toISOString().slice(0,-5);
+
+        if(jsData[i].date_added==Today){
+            console.log("yes");
+            todoList.appendChild(newli);
+        }
+        else{
+            console.log("no");
+            oldtodoList.appendChild(newli);
+        }
+
+       
+
+        
 
     }
 
@@ -178,31 +195,40 @@ document.addEventListener("click",async function(event){
         showtasks(returnedTasks);
     }
 
-    if(event.target.matches("#listcolors button")){
-        let allcolorbtn=document.querySelectorAll("#listcolors button");
+    if(event.target.matches("#addlistcolors button")){
+        let allcolorbtn=document.querySelectorAll("#addlistcolors button");
         for(let btn of allcolorbtn){
             btn.setAttribute("id","");
         }
         event.target.setAttribute("id","chosenListcolor");
+    }
 
+    if(event.target.matches("#editlistcolors button")){
+        let allcolorbtn=document.querySelectorAll("#editlistcolors button");
+        for(let btn of allcolorbtn){
+            btn.setAttribute("id","");
+        }
+        event.target.setAttribute("id","existingListcolor");
     }
 
     if(event.target.matches("#openEditlist")){
+        
         let Listid=document.getElementById("chosenList").value;
         let listTobeUpdated = await ListbyId(Listid);
         document.getElementById("existingList").value=listTobeUpdated.name;
-        let allcolorbtns=document.querySelectorAll("#listcolors button");
+        let allcolorbtns=document.querySelectorAll("#editlistcolors button");
         for(let btn of allcolorbtns){
             if(btn.value==listTobeUpdated.color){
-                btn.setAttribute("id","chosenListcolor");
+                btn.setAttribute("id","existingListcolor");
             }
         }
     }
     
     if(event.target.matches("#editlistbtn")){
+
         let Listid=document.getElementById("chosenList").value;
         let newListname=document.getElementById("existingList").value;
-        let newListcolor=document.getElementById("chosenListcolor").value;
+        let newListcolor=document.getElementById("existingListcolor").value;
         let newList=new List(Listid,newListname,newListcolor);
 
         let returnedLists = await editList(newList);
@@ -252,6 +278,7 @@ addTaskbtn.addEventListener("click", async function(){
         let chosenListid=chosenList.value;
         let task= new Task(null,newtext,false,null,chosenListid);
         let returnedTasks=await AddTask(task);
+        console.log(returnedTasks);
         showtasks(returnedTasks);
     }
     else{

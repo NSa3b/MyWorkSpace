@@ -27,7 +27,7 @@
 
     <main class="row m-0 w-100 h-100">
         <section class="d-flex justify-content-center align-items-center col-md-6 col-12 p-5">
-            <div class="list px-md-5 mx-md-5">
+            <div class="list px-lg-5 mx-lg-5">
                 <div class="mb-4">
                     <h1>Hi Noha</h1>
                     <p class="text-muted">
@@ -49,7 +49,7 @@
         </section>
         <section class="col-md-6 col-12 py-2">
             <div class="tasks p-5 h-100">
-                <div class="mb-5">
+                <div class="mb-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <h1 id="listTitle">All Tasks</h1>
                         <details class="dropdown">
@@ -84,6 +84,15 @@
                         </li>
                     </ul>
                 </div>
+                <h5 class="mx-2 my-4 fw-bold">Old Tasks</h5>
+                <hr class="m-0" />
+                <div class="scroll">
+                    <ul id="oldtodoList">
+                        <li>
+
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -101,7 +110,7 @@
                             <input type="text" class="form__input" id="newList" placeholder="List name" value="" />
                             <label for="List" class="form__label">List name</label>
                         </div>
-                        <div id="listcolors" class=" d-flex flex-wrap">
+                        <div id="addlistcolors" class=" d-flex flex-wrap">
                             <button id="chosenListcolor" class="pinkcol" value="pink"></button>
                             <button id="" class="bluecol" value="blue"></button>
                             <button id="" class="purplecol" value="purple"></button>
@@ -134,7 +143,7 @@
                             <input type="text" class="form__input" id="existingList" placeholder="List name" value="" />
                             <label for="List" class="form__label">List name</label>
                         </div>
-                        <div id="listcolors" class=" d-flex flex-wrap">
+                        <div id="editlistcolors" class=" d-flex flex-wrap">
                             <button id="" class="pinkcol" value="pink"></button>
                             <button id="" class="bluecol" value="blue"></button>
                             <button id="" class="purplecol" value="purple"></button>
