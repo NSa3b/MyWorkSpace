@@ -207,34 +207,40 @@ li p{
 
 
 .checked div button.pinkbtn,
-#listcolors > button.pinkcol{
+#addlistcolors > button.pinkcol,
+#editlistcolors > button.pinkcol{
     background-color: var(--pink);
     outline-color:var(--pink);
 }
 .checked div button.bluebtn,
-#listcolors > button.bluecol{
+#addlistcolors > button.bluecol,
+#editlistcolors > button.bluecol{
     background-color:var(--blue);
     outline-color:var(--blue);
 }
 .checked div button.purplebtn,
-#listcolors > button.purplecol{
+#addlistcolors > button.purplecol,
+#editlistcolors > button.purplecol{
     background-color:var(--purple);
     outline-color:var(--purple);
 }
 .checked div button.greenbtn,
-#listcolors > button.greencol{
+#addlistcolors > button.greencol,
+#editlistcolors > button.greencol{
     background-color: var(--green);
     outline-color:var(--green);
 
 }
 .checked div button.orangebtn,
-#listcolors > button.orangecol{
+#addlistcolors > button.orangecol,
+#editlistcolors > button.orangecol{
     background-color:var(--orange);
     outline-color:var(--orange);
 
 }
 .checked div button.redbtn,
-#listcolors > button.redcol{
+#addlistcolors > button.redcol,
+#editlistcolors > button.redcol{
     background-color:var(--red);
     outline-color:var(--red);
 
@@ -254,7 +260,7 @@ li p{
 }
 
 .scroll{
-    height: 350px;
+    height: 200px;
     overflow-y: scroll;
 } 
 .scroll::-webkit-scrollbar {
@@ -397,7 +403,8 @@ i.button:active {
     background:var(--beige-background);
 }
 
-#listcolors  button{
+#addlistcolors  button,
+#editlistcolors  button{
     color:white;
     height: 20px;
     width: 20px;
