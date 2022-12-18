@@ -260,7 +260,7 @@ li p{
 }
 
 .scroll{
-    height: 200px;
+    height: 150px;
     overflow-y: scroll;
 } 
 .scroll::-webkit-scrollbar {
@@ -424,3 +424,5 @@ i.button:active {
 /* #chosenListcolor:focus:not(:focus-visible) {
     outline: 2.5px solid;    
 } */
+
+

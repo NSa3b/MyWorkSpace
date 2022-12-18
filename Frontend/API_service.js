@@ -1,5 +1,4 @@
 
-
 const baseURL="https://localhost:44357/api/";
 
 function checkFetch(response){
@@ -58,7 +57,6 @@ export async function deleteList(id){
             "Content-type":"application/json"
         }
     });
-    console.log(response);
     checkFetch(response);
     let Lists = await response.json();
     return Lists;
@@ -123,7 +121,6 @@ export async function deleteTask(id){
             "Content-type":"application/json"
         }
     });
-    console.log(response);
     checkFetch(response);
     let Tasks = await response.json();
     return Tasks;

@@ -27,7 +27,7 @@
 
     <main class="row m-0 w-100 h-100">
         <section class="d-flex justify-content-center align-items-center col-md-6 col-12 p-5">
-            <div class="list px-lg-5 mx-lg-5">
+            <div class="list px-lg-2 mx-lg-5">
                 <div class="mb-4">
                     <h1>Hi Noha</h1>
                     <p class="text-muted">
@@ -84,7 +84,7 @@
                         </li>
                     </ul>
                 </div>
-                <h5 class="mx-2 my-4 fw-bold">Old Tasks</h5>
+                <h5 class="mx-2 my-3 fw-bold">Old Tasks</h5>
                 <hr class="m-0" />
                 <div class="scroll">
                     <ul id="oldtodoList">
@@ -121,7 +121,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button id="addlistbtn" type="button" class="btn btn-dark">Save changes</button>
+                        <button id="addlistbtn" type="button" class="btn btn-dark" data-bs-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
-                        <button id="deletelistbtn" type="button" class="btn btn-danger">Delete</button>
+                        <button id="deletelistbtn" type="button" class="btn btn-danger" data-bs-dismiss="modal" >Delete</button>
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@
 
     </main>
     <!-- <script src="./index.js"></script> -->
-    <script type="module" src="./index2.js"></script>
+    <script type="module" src="./index.js"></script>
     <script type="module" src="./API_service.js"></script>
 
 </body>
